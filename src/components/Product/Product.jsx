@@ -2,8 +2,9 @@ import React from "react";
 import "./Product.css";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
-const Product = ({ product }) => {
+const Product = ({ product, handleAddToCart }) => {
   const { id, img, name, price, ratings, seller } = product;
+
   return (
     <div
       className="product border border-solid rounded-lg flex flex-col justify-between"
@@ -20,7 +21,10 @@ const Product = ({ product }) => {
           <small>Rating : {ratings} start</small>
         </p>
       </div>
-      <button className="btn-add-cart w-full py-2 font-bold flex justify-center items-center gap-3">
+      <button
+        onClick={() => handleAddToCart(id)}
+        className="btn-add-cart w-full py-2 font-bold flex justify-center items-center gap-3"
+      >
         <span>Add to Cart</span>
         <ShoppingCartIcon className="h-6 w-6 text-black-500" />
       </button>
